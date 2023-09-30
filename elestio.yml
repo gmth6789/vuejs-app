@@ -1,0 +1,31 @@
+config:
+    runTime: 'NodeJs'
+    version: '16'
+    framework: 'Vue'
+    buildCommand: 'npm run build'
+    buildDir: 'dist'
+    runCommand: 'npm run dev'
+    installCommand: 'npm install'
+    icon: 'src/assets/logo.svg'
+    screenshot: 'src/assets/vuejs.png'
+ports:
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "443"
+    targetPort: "3000"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
+exposedPorts:
+  - protocol: "HTTP"
+    hostPort: "3000"
+    containerPort: "80"
+    interface: "172.17.0.1"
+environments:
+    -  key: 'ENV'
+       value: 'production'
+webUI:
+  - url: "https://[CI_CD_DOMAIN]"
+    label: "Website"       
